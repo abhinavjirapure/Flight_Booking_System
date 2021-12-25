@@ -15,37 +15,37 @@ import org.springframework.stereotype.Component;
 public class FlightBookingEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="PNR")
+	@Column(name = "PNR")
 	private int pnr;
 
-	@Column(name="FlightNumber")
+	@Column(name = "FlightNumber")
 	private int flight_Number;
 
-	@Column(name="Date")
+	@Column(name = "Date")
 	private String date;
 
-	@Column(name="FromPlace")
+	@Column(name = "FromPlace")
 	private String from_Place;
 
-	@Column(name="ToPlace")
+	@Column(name = "ToPlace")
 	private String to_Place;
 
-	@Column(name="Name")
+	@Column(name = "Name")
 	private String name;
 
-	@Column(name="EmailID")
+	@Column(name = "EmailID")
 	private String emailID;
 
-	@Column(name="NoOfSeatsToBook")
+	@Column(name = "NoOfSeatsToBook")
 	private int no_Of_Seats_To_Book;
 
-	@Column(name="Gender")
+	@Column(name = "Gender")
 	private String gender;
 
-	@Column(name="Age")
+	@Column(name = "Age")
 	private int age;
 
-	@Column(name="MealType")
+	@Column(name = "MealType")
 	private String mealType;
 
 	public int getPnr() {

@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,38 +21,46 @@ import com.flightapp.model.AirLineDetails;
 import com.flightapp.service.AddAirLineService;
 
 @RestController
-@RequestMapping(value="/api/v1.0")
+@CrossOrigin(origins = "*")
+@RequestMapping(value = "/api/v1.0")
 public class AddAirLineController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AddAirLineController.class);
 
 	@Autowired
-	AddAirLineService airLineService; 
+	private AddAirLineService airLineService;
 
 	@PostMapping(value = "/create/airlines")
-	public  ResponseEntity<String> createAirLine(@RequestBody AirLineDetails requestModel) throws Exception
-	{
+	public ResponseEntity<String> createAirLine(@RequestBody AirLineDetails requestModel) throws Exception {
 		logger.info("Inside createAirLine method");
 		airLineService.createAirLine(requestModel);
 		logger.info("Returning create new AirLine response");
-		return new ResponseEntity<>("New Air Line Created Successfully...",HttpStatus.OK);
+		return new ResponseEntity<>("New Air Line Created Successfully...", HttpStatus.OK);
 	}
 
-	@GetMapping(value ="/flight/search/{airLineNumber}")
-	public ResponseEntity<List<AddAirLineEntity>> searchFlight(@PathVariable long airLineNumber)
-	{
+	@GetMapping(value = "/flight/search/{airLineNumber}")
+	public ResponseEntity<List<AddAirLineEntity>> searchFlight(@PathVariable long airLineNumber) {
 		logger.info("Inside searchFlight method");
 		logger.info("Returning search flight response");
-		return new ResponseEntity<>(airLineService.searchFlight(airLineNumber),HttpStatus.OK);
+		return new ResponseEntity<>(airLineService.searchFlight(airLineNumber), HttpStatus.OK);
 	}
 
-	@PutMapping(value ="/flight/update")
-	public ResponseEntity<String> updateFlightDetails(@RequestBody AirLineDetails requestModel) throws Exception
-	{
+	@PutMapping(value = "/flight/update")
+	public ResponseEntity<String> updateFlightDetails(@RequestBody AirLineDetails requestModel) throws Exception {
 		logger.info("Inside updateFlightDetails method");
 		airLineService.updateFlightDetails(requestModel);
 		logger.info("Returning update flight details response");
-		return new ResponseEntity<>("Air Line Details Updated Successfully...",HttpStatus.OK);
+		return new ResponseEntity<>("Air Line Details Updated Successfully...", HttpStatus.OK);
 	}
-
+	
+	@PutMapping(value = "/flight/update/Status/{airLineNumber}/{status}")
+	public ResponseEntity<?> updateFlightStatus(@PathVariable long airLineNumber, @PathVariable String status)
+	throws Exception {
+	logger.info("Inside updateFlightStatus method");
+	System.out.println(airLineNumber);
+	airLineService.updateFlightStatus(airLineNumber, status);
+	logger.info("Returning updateFlightStatus response");
+	return ResponseEntity.status(HttpStatus.OK).body("Air Line Status Updated Successfully...");
+	}
+	
 }
