@@ -10,6 +10,7 @@ public class TicketBookingDetails implements Serializable {
 	private String date;
 	private String fromPlace;
 	private String toPlace;
+	private double price;
 	private String name;
 	private String emailID;
 	private int noOfSeatsToBook;
@@ -103,6 +104,14 @@ public class TicketBookingDetails implements Serializable {
 
 	public void setMealType(String mealType) {
 		this.mealType = mealType;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public static long getSerialversionuid() {

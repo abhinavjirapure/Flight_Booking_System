@@ -39,6 +39,7 @@ public class TicketBookingService {
 			entity.setFrom_Place(requestModel.getFromPlace());
 			entity.setTo_Place(requestModel.getToPlace());
 			entity.setName(requestModel.getName());
+			entity.setCost(requestModel.getPrice());
 			entity.setEmailID(requestModel.getEmailID());
 			entity.setNo_Of_Seats_To_Book(requestModel.getNoOfSeatsToBook());
 			entity.setGender(requestModel.getGender());

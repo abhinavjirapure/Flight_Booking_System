@@ -29,6 +29,9 @@ public class FlightBookingEntity {
 
 	@Column(name = "ToPlace")
 	private String to_Place;
+	
+	@Column(name = "cost")
+	private double cost;
 
 	@Column(name = "Name")
 	private String name;
@@ -134,6 +137,14 @@ public class FlightBookingEntity {
 
 	public void setMealType(String mealType) {
 		this.mealType = mealType;
+	}
+
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 
 }

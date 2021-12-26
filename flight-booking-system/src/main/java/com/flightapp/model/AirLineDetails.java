@@ -11,6 +11,7 @@ public class AirLineDetails implements Serializable {
 	private String airLineName;
 	private String fromPlace;
 	private String toPlace;
+	private double price;
 	private String startDateTime;
 	private String endDateTime;
 	private String instrumentUsed;
@@ -94,6 +95,14 @@ public class AirLineDetails implements Serializable {
 
 	public void setMeal(String meal) {
 		this.meal = meal;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public static long getSerialversionuid() {

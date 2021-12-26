@@ -36,6 +36,7 @@ public class AddAirLineService {
 			airLineEntity.setAir_Line_Name(requestModel.getAirLineName());
 			airLineEntity.setFrom_Place(requestModel.getFromPlace());
 			airLineEntity.setTo_Place(requestModel.getToPlace());
+			airLineEntity.setCost(requestModel.getPrice());
 			airLineEntity.setStart_Date_Time(startDate);
 			airLineEntity.setEnd_Date_Time(endDate);
 			airLineEntity.setInstrument_Used(requestModel.getInstrumentUsed());

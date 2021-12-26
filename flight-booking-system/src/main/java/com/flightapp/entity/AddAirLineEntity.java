@@ -30,6 +30,9 @@ public class AddAirLineEntity {
 
 	@Column(name = "toPlace")
 	private String to_Place;
+	
+	@Column(name = "cost")
+	private double cost;
 
 	@Column(name = "startDateTime")
 	private LocalDate start_Date_Time;
@@ -89,6 +92,14 @@ public class AddAirLineEntity {
 
 	public void setTo_Place(String to_Place) {
 		this.to_Place = to_Place;
+	}
+	
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 
 	public LocalDate getStart_Date_Time() {
